@@ -237,25 +237,23 @@ require('lazy').setup {
             require('lspconfig')[server_name].setup(server)
           end,
         },
-        config = function()
-          local lspconfig = require 'lspconfig'
-          local util = require 'lspconfig.util'
-          local cmp_nvim_lsp = require 'cmp_nvim_lsp'
+      }
+
+      require('lspconfig')['sourcekit'].setup {
+        capabilities = capabilities,
+        on_init = function(client)
+          -- see: https://github.com/neovim/neovim/issues/19237#issuecomment-2237037154
+          client.offset_encoding = 'utf-8'
+        end,
+        on_attach = function(_, bufnr)
           local opts = { noremap = true, silent = true }
-          local on_attach = function(_, bufnr)
-            opts.buffer = bufnr
+          opts.buffer = bufnr
 
-            opts.desc = 'Show line diagnostics'
-            vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
+          opts.desc = 'Show line diagnostics'
+          vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
 
-            opts.desc = 'Show documentation for what is under cursor'
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-          end
-
-          lspconfig['sourcekit'].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-          }
+          opts.desc = 'Show documentation for what is under cursor'
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         end,
       }
     end,
