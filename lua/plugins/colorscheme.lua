@@ -14,6 +14,9 @@ return {
         TelescopeResultsNormal = { fg = 'subtle', bg = 'none' },
         TelescopeSelection = { fg = 'text', bg = 'none' },
         TelescopeSelectionCaret = { fg = 'rose', bg = 'rose' },
+        CursorLineNr = { fg = 'rose' },
+        -- CurSearch = { fg = 'base', bg = 'leaf', inherit = false },
+        -- Search = { fg = 'text', bg = 'leaf', blend = 20, inherit = false },
       },
       before_highlight = function() end,
       enable = {

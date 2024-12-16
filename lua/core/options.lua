@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 vim.schedule(function()
-  opt.clipboard = "unnamedplus"
+  opt.clipboard = 'unnamedplus'
 end)
 
 opt.exrc = true
@@ -20,13 +20,14 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 
-opt.mouse = "a"
+opt.mouse = 'a'
 opt.updatetime = 250
 opt.timeoutlen = 500
 
 opt.list = true
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-opt.fillchars = { eob = "·" }
-opt.signcolumn = "yes"
-opt.background = "dark"
-opt.backspace = "indent,eol,start"
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.fillchars = { eob = '·' }
+opt.signcolumn = 'yes'
+opt.background = 'dark'
+opt.backspace = 'indent,eol,start'
+opt.showmode = false
