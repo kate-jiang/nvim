@@ -30,8 +30,34 @@ return {
         lsp_format = lsp_format_opt,
       }
     end,
+    formatters = {
+      prettier = {
+        args = function()
+          -- Retrieve Vim's indentation settings
+          local expandtab = vim.api.nvim_get_option_value('expandtab', { scope = 'local' })
+          local shiftwidth = vim.api.nvim_get_option_value('shiftwidth', { scope = 'local' })
+          local tabstop = vim.api.nvim_get_option_value('tabstop', { scope = 'local' })
+
+          -- Configure Prettier arguments based on Vim's settings
+          local args = { '--stdin-filepath', vim.api.nvim_buf_get_name(0) }
+          if expandtab then
+            table.insert(args, '--use-tabs=false')
+            table.insert(args, '--tab-width=' .. shiftwidth)
+          else
+            table.insert(args, '--use-tabs=true')
+            table.insert(args, '--tab-width=' .. tabstop)
+          end
+          return args
+        end,
+        stdin = true,
+      },
+    },
     formatters_by_ft = {
       lua = { 'stylua' },
+      typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
