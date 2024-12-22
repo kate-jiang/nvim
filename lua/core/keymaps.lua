@@ -18,8 +18,8 @@ map('n', '<leader>|', '<C-w>s', { desc = 'Split window horizontally' })
 -- resize with ctrl +/-
 map('n', '<C-->', '<cmd>resize -4<cr>', { desc = 'Smaller horizontal split' })
 map('n', '<C-=>', '<cmd>resize +4<cr>', { desc = 'Bigger horizontal split' })
-map('n', '<C-[>', '<cmd>vertical resize -4<cr>', { desc = 'Smaller vertical split' })
-map('n', '<C-]>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split' })
+-- map('n', '<C-[>', '<cmd>vertical resize -4<cr>', { desc = 'Smaller vertical split' })
+-- map('n', '<C-]>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split' })
 
 -- tabs management
 -- map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" })
@@ -28,9 +28,9 @@ map('n', '<C-]>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split
 -- map('n', ']t', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
 
 -- buffers management
--- map('n', '<C-]>', '<cmd>bn<CR>', { desc = 'Go to next buffer' })
--- map('n', '<C-[>', '<cmd>bp<CR>', { desc = 'Go to previous buffer' })
-map('n', '<leader>bb', '<cmd>bd!<CR>', { desc = '[B]ye [b]uffer' })
+map('n', '<C-]>', '<cmd>bn<CR>', { desc = 'Go to next buffer' })
+map('n', '<C-[>', '<cmd>bp<CR>', { desc = 'Go to previous buffer' })
+map('n', '<leader>bd', '<cmd>bd<CR>', { desc = '[B]uffer [d]elete' })
 map('n', '<leader>bo', '<cmd>%bd<CR><cmd>e#<CR>', { desc = 'Close [o]ther [b]uffers' })
 -- map("n", "<leader>bn", "<cmd>new<CR>", { desc = "New buffer" })
 
