@@ -63,7 +63,7 @@ return {
     map('n', '<C-p>', builtin.find_files, { desc = 'Search files' })
     map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     map('n', '<leader>fw', builtin.grep_string, { desc = 'Find Word' })
-    map('n', '<leader>F', builtin.live_grep, { desc = '[S]earch by Grep' })
+    map('n', '<leader>F', builtin.live_grep, { desc = '[F]ind with grep' })
     map('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     map('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     map('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
@@ -72,7 +72,7 @@ return {
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         previewer = false,
       })
-    end, { desc = '[/] Fuzzily search in current buffer' })
+    end, { desc = 'Fuzzy search current buffer' })
 
     map('n', '<leader>s/', function()
       builtin.live_grep {

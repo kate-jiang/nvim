@@ -26,7 +26,7 @@ return {
           newfile = '[New]',
         },
         disabled_buftypes = { 'quickfix', 'prompt' },
-        component_separators = '',
+        component_separators = '', --'█',
         section_separators = { left = '', right = '' },
       },
       sections = {
@@ -34,7 +34,7 @@ return {
           {
             'mode',
             fmt = function(str)
-              return ' ' .. str
+              return 'λ ' .. str
             end,
           },
         },
