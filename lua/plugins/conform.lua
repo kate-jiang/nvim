@@ -15,10 +15,7 @@ return {
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true, objc = true, objcpp = true }
+      local disable_filetypes = { c = true, cpp = true }
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
         lsp_format_opt = 'never'
@@ -33,12 +30,10 @@ return {
     formatters = {
       prettier = {
         args = function()
-          -- Retrieve Vim's indentation settings
           local expandtab = vim.api.nvim_get_option_value('expandtab', { scope = 'local' })
           local shiftwidth = vim.api.nvim_get_option_value('shiftwidth', { scope = 'local' })
           local tabstop = vim.api.nvim_get_option_value('tabstop', { scope = 'local' })
 
-          -- Configure Prettier arguments based on Vim's settings
           local args = { '--stdin-filepath', vim.api.nvim_buf_get_name(0) }
           if expandtab then
             table.insert(args, '--use-tabs=false')
@@ -51,6 +46,13 @@ return {
         end,
         stdin = true,
       },
+
+      -- Add/Modify clang_format to handle Objective-C
+      clang_format = {
+        -- You can tweak any clang-format style options here, e.g., IndentWidth, UseTab, etc.
+        args = { '-style={BasedOnStyle: LLVM, ColumnLimit: 180, IndentWidth: 4, AlignAfterOpenBracket: DontAlign, AlignFunctionCallArguments: None}' },
+        stdin = true,
+      },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
@@ -58,11 +60,10 @@ return {
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      -- Conform can also run multiple formatters sequentially
+      -- Add a mapping for Objective-C to clang_format
+      objc = { 'clang_format' },
       -- python = { "isort", "black" },
-      --
-      -- You can use 'stop_after_first' to run the first available formatter from the list
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      -- ...
     },
   },
 }
