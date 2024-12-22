@@ -55,6 +55,8 @@ return {
           EndOfBuffer = { fg = colors.flamingo },
           -- WinSeparator = { fg = colors.base, bg = colors.crust },
           YankHighlight = { bg = '#d45f98', fg = colors.peach },
+          SnacksIndentScope = { fg = colors.surface2 },
+          SnacksIndent = { fg = colors.surface0 },
         }
       end,
     }

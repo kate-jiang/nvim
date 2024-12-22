@@ -16,10 +16,10 @@ map('n', '<leader>|', '<C-w>s', { desc = 'Split window horizontally' })
 -- map("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
 
 -- resize with ctrl +/-
-map('n', '<C-[>', '<cmd>resize -4<cr>', { desc = 'Smaller horizontal split' })
-map('n', '<C-]>', '<cmd>resize +4<cr>', { desc = 'Bigger horizontal split' })
-map('n', '<C-->', '<cmd>vertical resize -4<cr>', { desc = 'Smaller vertical split' })
-map('n', '<C-=>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split' })
+map('n', '<C-->', '<cmd>resize -4<cr>', { desc = 'Smaller horizontal split' })
+map('n', '<C-=>', '<cmd>resize +4<cr>', { desc = 'Bigger horizontal split' })
+map('n', '<C-[>', '<cmd>vertical resize -4<cr>', { desc = 'Smaller vertical split' })
+map('n', '<C-]>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split' })
 
 -- tabs management
 -- map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" })

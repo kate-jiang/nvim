@@ -1,5 +1,6 @@
 return {
   'lewis6991/gitsigns.nvim',
+  enabled = false,
   opts = {
     signs = {
       add = { text = '┃' },
@@ -77,11 +78,6 @@ return {
           gitsigns.nav_hunk 'prev'
         end
       end, { desc = 'Jump to previous git [c]hange' })
-
-      vim.keymap.set('n', '<leader>go', open_commit_link, { buffer = bufnr, desc = 'Open commit link on GitHub' })
-
-      -- Blame in floating window
-      map('n', '<leader>gb', gitsigns.blame_line, { desc = 'Show git blame in floating window' })
 
       -- Visual mode
       map('v', '<leader>hs', function()
