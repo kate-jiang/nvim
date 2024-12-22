@@ -20,13 +20,31 @@ return {
         },
       },
     },
+    dim = {
+      enabled = true,
+      animate = {
+        easing = 'outQuad',
+        duration = {
+          step = 10, -- ms per step
+          total = 250, -- maximum duration
+        },
+      },
+    },
     indent = { enabled = true },
     input = { enabled = true },
-    git = { enabled = true },
-    notifier = { enabled = true },
+    notifier = { enabled = true, style = 'compact' },
     quickfile = { enabled = true },
-    scroll = { enabled = false },
-    statuscolumn = { enabled = true, left = { 'git' } },
+    scroll = {
+      enabled = false,
+      animate = {
+        duration = {
+          step = 5, -- ms per step
+          total = 100, -- maximum duration
+        },
+      },
+      spamming = 0,
+    },
+    statuscolumn = { enabled = true, left = { 'sign', 'git' }, right = { 'fold', 'mark' } },
     words = { enabled = true },
   },
   keys = {
@@ -72,5 +90,31 @@ return {
       desc = 'Git Browse',
       mode = { 'n', 'v' },
     },
+    {
+      '<leader>un',
+      function()
+        Snacks.notifier.hide()
+      end,
+      desc = 'Dismiss All Notifications',
+    },
+    {
+      '<leader>.',
+      function()
+        Snacks.scratch()
+      end,
+      desc = 'Toggle Scratch Buffer',
+    },
   },
+  init = function()
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'VeryLazy',
+      callback = function()
+        Snacks.toggle.option('wrap', { name = 'Wrap' }):map '<leader>uw'
+        Snacks.toggle.diagnostics():map '<leader>ud'
+        Snacks.toggle.inlay_hints():map '<leader>uh'
+        Snacks.toggle.indent():map '<leader>ug'
+        Snacks.toggle.dim():map '<leader>uD'
+      end,
+    })
+  end,
 }

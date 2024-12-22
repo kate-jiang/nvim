@@ -11,6 +11,24 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
   {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      message = {
+        enabled = false,
+      },
+      notify = {
+        enabled = false,
+      },
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+  },
+  {
     'rmagatti/auto-session',
     config = function()
       local auto_session = require 'auto-session'
