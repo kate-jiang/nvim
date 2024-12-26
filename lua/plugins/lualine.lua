@@ -17,10 +17,16 @@ return {
         },
         disabled_buftypes = { 'quickfix', 'prompt' },
         component_separators = '',
-        section_separators = '', --{ left = '', right = '' },
+        section_separators = { left = '', right = '' },
       },
       winbar = {
-        lualine_b = { 'buffers' },
+        lualine_b = {
+          {
+            'buffers',
+            section_separators = { left = '', right = '' },
+            icons_enabled = false,
+          },
+        },
       },
       sections = {
         lualine_a = {
@@ -29,7 +35,6 @@ return {
             fmt = function(str)
               return 'λ ' .. str
             end,
-            separator = { right = '' },
           },
         },
         lualine_b = {
@@ -38,7 +43,6 @@ return {
             fmt = function(str)
               return '󰧱 ' .. str
             end,
-            separator = { right = '' },
           },
         },
         lualine_c = {
@@ -53,10 +57,10 @@ return {
           { 'diff' },
         },
         lualine_y = {
-          { 'branch', separator = { left = '' } },
+          { 'branch' },
         },
         lualine_z = {
-          { 'encoding', separator = { left = '' } },
+          { 'encoding' },
         },
       },
       extensions = { 'nvim-tree', 'lazy', 'mason' },

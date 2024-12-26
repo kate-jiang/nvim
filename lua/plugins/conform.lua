@@ -49,8 +49,17 @@ return {
 
       -- Add/Modify clang_format to handle Objective-C
       clang_format = {
-        -- You can tweak any clang-format style options here, e.g., IndentWidth, UseTab, etc.
-        args = { '-style={BasedOnStyle: LLVM, ColumnLimit: 180, IndentWidth: 4, AlignAfterOpenBracket: DontAlign, AlignFunctionCallArguments: None}' },
+        args = {
+          [[
+            -style={
+              BasedOnStyle: LLVM,
+              IndentWidth: 4,
+              ColumnLimit: 180,
+              AlignConsecutiveAssignments: true,
+              AlignConsecutiveDeclarations: true,
+            }
+          ]],
+        },
         stdin = true,
       },
     },
