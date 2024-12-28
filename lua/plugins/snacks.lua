@@ -26,7 +26,12 @@ return {
     input = { enabled = true },
     lazygit = {
       enabled = true,
-      win = { style = { width = vim.o.columns, height = vim.o.lines } },
+      win = {
+        style = {
+          width = vim.o.columns,
+          height = vim.o.lines - 1,
+        },
+      },
     },
     notifier = { enabled = true, style = 'compact' },
     quickfile = { enabled = true },
