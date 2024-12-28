@@ -19,12 +19,14 @@ return {
         component_separators = '',
         section_separators = { left = '', right = '' },
       },
-      winbar = {
+      tabline = {
         lualine_b = {
           {
             'buffers',
             section_separators = { left = '', right = '' },
             icons_enabled = false,
+            max_length = vim.o.columns - 3,
+            use_mode_colors = true,
           },
         },
       },
@@ -40,6 +42,7 @@ return {
         lualine_b = {
           {
             'filename',
+            path = 1,
             fmt = function(str)
               return '󰧱 ' .. str
             end,
@@ -60,11 +63,12 @@ return {
           { 'branch' },
         },
         lualine_z = {
+          { 'filesize' },
           { 'encoding' },
         },
       },
       extensions = { 'nvim-tree', 'lazy', 'mason' },
-      inactive_winbar = {
+      inactive_tabline = {
         lualine_c = { 'filename' },
       },
     }

@@ -20,18 +20,14 @@ return {
         },
       },
     },
-    dim = {
-      enabled = true,
-      animate = {
-        easing = 'outQuad',
-        duration = {
-          step = 10, -- ms per step
-          total = 250, -- maximum duration
-        },
-      },
-    },
+    scratch = { enabled = false },
+    dim = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
+    lazygit = {
+      enabled = true,
+      win = { style = { width = vim.o.columns, height = vim.o.lines } },
+    },
     notifier = { enabled = true, style = 'compact' },
     quickfile = { enabled = true },
     scroll = {
@@ -85,9 +81,9 @@ return {
     {
       '<leader>go',
       function()
-        Snacks.gitbrowse()
+        Snacks.gitbrowse { what = 'commit' }
       end,
-      desc = 'Git Browse',
+      desc = 'Open Commit in Browser',
       mode = { 'n', 'v' },
     },
     {
@@ -96,13 +92,6 @@ return {
         Snacks.notifier.hide()
       end,
       desc = 'Dismiss All Notifications',
-    },
-    {
-      '<leader>.',
-      function()
-        Snacks.scratch()
-      end,
-      desc = 'Toggle Scratch Buffer',
     },
   },
   init = function()

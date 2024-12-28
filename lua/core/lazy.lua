@@ -11,18 +11,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
   {
-    'petertriho/nvim-scrollbar',
-    opts = {
-      throttle_ms = 30,
-      marks = {
-        Cursor = { text = '▃' },
-        -- GitAdd = { text = '━', hl = 'GitSignsAdd' },
-        -- GitChange = { text = '━', hl = 'GitSignsAdd' },
-      },
-      handlers = { gitsigns = true },
-    },
-  },
-  {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features
     event = 'VeryLazy',
@@ -74,7 +62,7 @@ require('lazy').setup {
       local ui = require 'harpoon.ui'
       local map = vim.keymap.set
 
-      map('n', '<leader>a', mark.add_file, { desc = '[A]dd to harpoon' })
+      map('n', '<leader>a', mark.add_file, { desc = 'Mark in harpoon' })
       map('n', '<leader><CR>', ui.toggle_quick_menu, { desc = 'Toggle harpoon' })
     end,
   },

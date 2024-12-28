@@ -17,6 +17,8 @@ return {
           i = {
             ['<C-j>'] = 'move_selection_next',
             ['<C-k>'] = 'move_selection_previous',
+            ['<C-d>'] = 'delete_buffer',
+            ['<esc>'] = 'close',
           },
         },
       },
@@ -43,6 +45,10 @@ return {
         buffers = {
           theme = 'ivy',
           previewer = true,
+          initial_mode = 'insert',
+          sort_mru = true,
+          sort_lastused = true,
+          -- ignore_current_buffer = true,
         },
       },
       extensions = {
@@ -63,10 +69,10 @@ return {
     map('n', '<C-p>', builtin.find_files, { desc = 'Search files' })
     map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     map('n', '<leader>fw', builtin.grep_string, { desc = 'Find Word' })
-    map('n', '<leader>F', builtin.live_grep, { desc = '[F]ind with grep' })
+    map('n', '<leader>F', builtin.live_grep, { desc = 'Find with grep' })
     map('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     map('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    map('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    map('n', '<leader><leader>', builtin.buffers, { desc = 'Search existing buffers' })
 
     map('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {

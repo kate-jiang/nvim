@@ -30,8 +30,8 @@ map('n', '<C-=>', '<cmd>resize +4<cr>', { desc = 'Bigger horizontal split' })
 -- buffers management
 map('n', '<C-]>', '<cmd>bn<CR>', { desc = 'Go to next buffer' })
 map('n', '<C-[>', '<cmd>bp<CR>', { desc = 'Go to previous buffer' })
-map('n', '<leader>bd', '<cmd>bd<CR>', { desc = '[B]uffer [d]elete' })
-map('n', '<leader>bo', '<cmd>%bd<CR><cmd>e#<CR>', { desc = 'Close [o]ther [b]uffers' })
+map('n', '<leader>dw', '<cmd>bd<CR>', { desc = 'Close buffer' })
+-- map('n', '<leader>do', '<cmd>%bd<CR><cmd>e#<CR>', { desc = 'Close all other buffers' })
 -- map("n", "<leader>bn", "<cmd>new<CR>", { desc = "New buffer" })
 
 -- copy & paste
