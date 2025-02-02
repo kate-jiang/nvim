@@ -9,6 +9,7 @@ return {
       { '<leader>l', group = 'Lazygit' },
       { '<leader>r', group = 'Rename', icon = '' },
       { '<leader>s', group = 'Search' },
+      { '<leader>sa', group = 'Search Sessions' },
       { '<leader>w', group = 'Buffer' },
       { '<leader>a', group = 'Mark in harpoon', icon = '' },
       { '<leader>h', group = 'Git Hunk', mode = { 'n', 'v' } },

@@ -80,6 +80,8 @@ return {
     map('n', '<leader>sd', builtin.diagnostics, { desc = 'Search diagnostics' })
     map('n', '<leader>sr', builtin.resume, { desc = 'Search resume' })
     map('n', '<leader><leader>', builtin.buffers, { desc = 'Find buffers' })
+    map('n', '<leader>sad', '<cmd>Autosession delete<CR>', { desc = 'Delete sessions' })
+    map('n', '<leader>sas', '<cmd>Autosession search<CR>', { desc = 'Search sessions' })
 
     map('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -92,10 +94,10 @@ return {
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
       }
-    end, { desc = 'Search in Open Files' })
+    end, { desc = 'Search open files' })
 
     map('n', '<leader>sn', function()
       builtin.live_grep { cwd = vim.fn.stdpath 'config' }
-    end, { desc = 'Search Neovim files' })
+    end, { desc = 'Search nvim files' })
   end,
 }
