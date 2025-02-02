@@ -2,20 +2,10 @@ return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
-  keys = {
-    {
-      '<leader>f',
-      function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
-      end,
-      mode = '',
-      desc = '[F]ormat buffer',
-    },
-  },
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = { c = true, cpp = true, objc = true, objcpp = true }
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
         lsp_format_opt = 'never'
@@ -48,20 +38,20 @@ return {
       },
 
       -- Add/Modify clang_format to handle Objective-C
-      -- clang_format = {
-      --   args = {
-      --     [[
-      --       -style={
-      --         BasedOnStyle: LLVM,
-      --         IndentWidth: 4,
-      --         ColumnLimit: 180,
-      --         AlignConsecutiveAssignments: true,
-      --         AlignConsecutiveDeclarations: true,
-      --       }
-      --     ]],
-      --   },
-      --   stdin = true,
-      -- },
+      clang_format = {
+        args = {
+          [[
+            -style={
+              BasedOnStyle: LLVM,
+              IndentWidth: 4,
+              ColumnLimit: 180,
+              AlignConsecutiveAssignments: true,
+              AlignConsecutiveDeclarations: true,
+            }
+          ]],
+        },
+        stdin = true,
+      },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
@@ -70,7 +60,7 @@ return {
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       -- Add a mapping for Objective-C to clang_format
-      -- objc = { 'clang_format' },
+      objc = { 'clang_format' },
       -- python = { "isort", "black" },
       -- ...
     },

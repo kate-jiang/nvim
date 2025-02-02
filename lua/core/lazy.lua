@@ -30,6 +30,9 @@ require('lazy').setup {
       notify = {
         enabled = false,
       },
+      popupmenu = {
+        enabled = false,
+      },
       presets = {
         lsp_doc_border = true,
       },
@@ -56,27 +59,11 @@ require('lazy').setup {
     config = true,
   },
   {
-    'theprimeagen/harpoon',
-    config = function()
-      local mark = require 'harpoon.mark'
-      local ui = require 'harpoon.ui'
-      local map = vim.keymap.set
-
-      map('n', '<leader>a', mark.add_file, { desc = 'Mark in harpoon' })
-      map('n', '<leader><CR>', ui.toggle_quick_menu, { desc = 'Toggle harpoon' })
-    end,
-  },
-  {
     'mbbill/undotree',
     config = function()
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = '[U]ndotree' })
     end,
   },
   { 'tpope/vim-sleuth' },
-  {
-    'pmizio/typescript-tools.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
-  },
   { import = 'plugins' },
 }

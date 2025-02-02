@@ -10,6 +10,8 @@ return {
       term_colors = false,
       custom_highlights = function(colors)
         return {
+          Cursor = { fg = '#000000', bg = colors.overlay1 },
+          lCursor = { fg = '#000000', bg = colors.overlay1 },
           CursorLine = { bg = colors.surface0 },
           CursorLineNr = { fg = colors.pink },
           Search = { bg = colors.peach, fg = '#000000' },

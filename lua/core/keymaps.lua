@@ -6,21 +6,25 @@ local map = vim.api.nvim_set_keymap
 
 map('n', '<esc>', '<cmd>nohl<cr>', opts)
 
+-- map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
+-- map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+-- map('x', 'j', "v:count == 0 ? 'gj' : 'j'", { desc = 'Down', expr = true, silent = true })
+-- map('x', 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, silent = true })
+
+map('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase Window Height' })
+map('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease Window Height' })
+map('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease Window Width' })
+map('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase Window Width' })
+
 -- disable updating register for x and c
 map('n', 'x', '"_x', opts)
 map('n', 'c', '"_c', opts)
 map('n', 'C', '"_C', opts)
 
 -- splits management
-map('n', '<leader>\\', '<C-w>v', { desc = 'Split window vertically' })
-map('n', '<leader>|', '<C-w>s', { desc = 'Split window horizontally' })
+-- map('n', '<leader>v', '<C-w>v', { desc = 'Split window vertically' })
+-- map('n', '<leader>s', '<C-w>s', { desc = 'Split window horizontally' })
 -- map("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-
--- resize with ctrl +/-
-map('n', '<C-->', '<cmd>resize -4<cr>', { desc = 'Smaller horizontal split' })
-map('n', '<C-=>', '<cmd>resize +4<cr>', { desc = 'Bigger horizontal split' })
-map('n', '<C-[>', '<cmd>vertical resize -4<cr>', { desc = 'Smaller vertical split' })
-map('n', '<C-]>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split' })
 
 -- tabs management
 -- map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "Open new tab" })
@@ -29,11 +33,10 @@ map('n', '<C-]>', '<cmd>vertical resize +4<cr>', { desc = 'Bigger vertical split
 -- map('n', ']t', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
 
 -- buffers management
-map('n', '<C-l>', '<cmd>bn<CR>', { desc = 'Go to next buffer' })
-map('n', '<C-h>', '<cmd>bp<CR>', { desc = 'Go to previous buffer' })
-map('n', '<leader>dw', '<cmd>bd<CR>', { desc = 'Close buffer' })
--- map('n', '<leader>do', '<cmd>%bd<CR><cmd>e#<CR>', { desc = 'Close all other buffers' })
--- map("n", "<leader>bn", "<cmd>new<CR>", { desc = "New buffer" })
+map('n', '<leader>wn', '<cmd>bn<CR>', { desc = 'Next buffer' })
+map('n', '<leader>wp', '<cmd>bp<CR>', { desc = 'Previous buffer' })
+map('n', '<leader>wd', '<cmd>bd<CR>', { desc = 'Close buffer' })
+map('n', '<leader>wD', '<cmd>bd!<CR>', { desc = 'Force close buffer' })
 
 -- copy & paste
 map('x', 'p', '"_dP', opts)
@@ -52,8 +55,9 @@ map('n', '<', '<<', opts)
 map('n', '>', '>>', opts)
 
 -- other
--- map('n', '<leader>mm', '<cmd>messages<cr>', { desc = 'Show messages' })
-map('n', '<leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
+map('n', '<leader>m', '<cmd>messages<cr>', { desc = 'Show messages' })
+map('n', '<leader>di', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Diagnostics' })
+map('n', '<leader>e', '<cmd>Oil --float<CR>', { desc = 'Toggle Oil' })
 
 map('x', 'u', '<esc>u', opts)
 map('v', 'u', '<esc>u', opts)

@@ -37,10 +37,17 @@ return {
         live_grep = {
           theme = 'ivy',
           previewer = true,
+          disable_coordinates = true,
         },
         grep_string = {
           theme = 'ivy',
           previewer = true,
+          show_line = false,
+        },
+        lsp_references = {
+          theme = 'ivy',
+          previewer = true,
+          show_line = false,
         },
         buffers = {
           theme = 'ivy',
@@ -64,31 +71,31 @@ return {
     local builtin = require 'telescope.builtin'
     local map = vim.keymap.set
 
-    map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    map('n', '<C-p>', builtin.find_files, { desc = 'Search files' })
-    map('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    map('n', '<leader>fw', builtin.grep_string, { desc = 'Find Word' })
-    map('n', '<leader>F', builtin.live_grep, { desc = 'Find with grep' })
-    map('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    map('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    map('n', '<leader><leader>', builtin.buffers, { desc = 'Search existing buffers' })
+    map('n', '<leader>sh', builtin.help_tags, { desc = 'Search help' })
+    map('n', '<leader>sk', builtin.keymaps, { desc = 'Search keymaps' })
+    map('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+    map('n', '<leader>ss', builtin.builtin, { desc = 'Search telescope' })
+    map('n', '<leader>fw', builtin.grep_string, { desc = 'Find word' })
+    map('n', '<leader>sg', builtin.live_grep, { desc = 'Search with grep' })
+    map('n', '<leader>sd', builtin.diagnostics, { desc = 'Search diagnostics' })
+    map('n', '<leader>sr', builtin.resume, { desc = 'Search resume' })
+    map('n', '<leader><leader>', builtin.buffers, { desc = 'Find buffers' })
 
     map('n', '<leader>/', function()
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         previewer = false,
       })
-    end, { desc = 'Fuzzy search current buffer' })
+    end, { desc = 'Fuzzy search buffer' })
 
     map('n', '<leader>s/', function()
       builtin.live_grep {
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
       }
-    end, { desc = '[S]earch [/] in Open Files' })
+    end, { desc = 'Search in Open Files' })
 
     map('n', '<leader>sn', function()
       builtin.live_grep { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[S]earch [N]eovim files' })
+    end, { desc = 'Search Neovim files' })
   end,
 }
