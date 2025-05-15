@@ -1,8 +1,9 @@
 return {
   'github/copilot.vim',
+  -- enabled = false,
   config = function()
-    -- Use fnm to get path to Node 18
-    local handle = io.popen 'fnm exec --using=18 which node'
+    -- Use fnm to get path to Node 20
+    local handle = io.popen 'fnm exec --using=20 which node'
     if handle then
       local node_path = handle:read '*a'
       handle:close()

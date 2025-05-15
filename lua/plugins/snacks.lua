@@ -55,7 +55,7 @@ return {
         { section = 'startup' },
       },
     },
-    scratch = { enabled = false },
+    scratch = { enabled = true },
     dim = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
@@ -106,7 +106,7 @@ return {
       desc = 'Lazygit Current File History',
     },
     {
-      '<leader>j',
+      '<leader>t',
       function()
         Snacks.terminal()
       end,
@@ -125,6 +125,14 @@ return {
         Snacks.gitbrowse { what = 'commit' }
       end,
       desc = 'Open Commit in Browser',
+      mode = { 'n', 'v' },
+    },
+    {
+      '<leader>.',
+      function()
+        Snacks.scratch()
+      end,
+      desc = 'Scratch Buffer',
       mode = { 'n', 'v' },
     },
   },

@@ -65,5 +65,6 @@ require('lazy').setup {
     end,
   },
   { 'tpope/vim-sleuth' },
+  { 'sindrets/diffview.nvim' },
   { import = 'plugins' },
 }

@@ -10,7 +10,7 @@ return {
     },
     -- Buffer-local options to use for oil buffers
     buf_options = {
-      buflisted = true,
+      buflisted = false,
       bufhidden = 'hide',
     },
     -- Window-local options to use for oil buffers
