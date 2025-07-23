@@ -54,15 +54,20 @@ return {
       },
     },
     formatters_by_ft = {
+      go = { "goimports", "gofmt" },
       lua = { 'stylua' },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      -- Add a mapping for Objective-C to clang_format
       objc = { 'clang_format' },
-      -- python = { "isort", "black" },
-      -- ...
+      python = { "isort", "black" },
+      sh = { "shfmt" },
+      bash = { "shfmt" },
+
     },
+    default_format_opts = {
+      lsp_format = "fallback",
+    }
   },
 }

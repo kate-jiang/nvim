@@ -1,6 +1,9 @@
 return {
   'saghen/blink.cmp',
-  dependencies = 'rafamadriz/friendly-snippets',
+  dependencies = {
+    'rafamadriz/friendly-snippets',
+    "fang2hou/blink-copilot",
+  },
   version = '*',
   opts = {
     keymap = { preset = 'default' },
@@ -12,6 +15,12 @@ return {
 
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
+      copilot = {
+        name = "copilot",
+        module = "blink-copilot",
+        score_offset = 100,
+        async = true,
+      },
     },
   },
   opts_extend = { 'sources.default' },

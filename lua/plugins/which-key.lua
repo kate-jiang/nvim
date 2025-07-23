@@ -3,7 +3,7 @@ return {
   event = 'VimEnter',
   opts = {
     spec = {
-      { '<leader>p', group = 'Project', icon = '' },
+      { '<leader>c', group = 'Code' },
       { '<leader>g', group = 'Git' },
       { '<leader>l', group = 'Lazygit' },
       { '<leader>r', group = 'Rename', icon = '' },

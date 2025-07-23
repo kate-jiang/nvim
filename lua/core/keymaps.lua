@@ -34,8 +34,7 @@ map('n', '<', '<<', opts)
 map('n', '>', '>>', opts)
 
 -- other
-map('n', '<leader>,', '<cmd>lua vim.diagnostic.open_float()<CR>', { desc = 'Diagnostics' })
-map('n', '<leader>e', '<cmd>Oil --float<CR>', { desc = 'Toggle Oil' })
+map('n', '<leader>o', '<cmd>Oil --float<CR>', { desc = 'Toggle Oil' })
 map('x', 'u', '<esc>u', opts)
 map('v', 'u', '<esc>u', opts)
 
