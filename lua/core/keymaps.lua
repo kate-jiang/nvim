@@ -18,7 +18,8 @@ map('n', '<leader>w', '<cmd>bd<CR>', { desc = 'Close buffer' })
 map('n', '<leader>W', '<cmd>bd!<CR>', { desc = 'Force close buffer' })
 
 -- copy & paste
-map('x', 'p', '"_dP', opts)
+map('x', 'p', '"_dp', opts)
+map('x', 'P', '"_dP', opts)
 map('', '<leader>dd', '"_dd<esc>', { desc = 'Delete without changing register' })
 
 -- scrolling
