@@ -8,7 +8,7 @@ return {
   opts = {
     keymap = {
       preset = 'default',
-      ['<Enter>'] = { 'accept' },
+      ['<Enter>'] = { 'accept', 'fallback' },
     },
 
     appearance = {
