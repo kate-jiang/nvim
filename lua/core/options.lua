@@ -4,8 +4,12 @@ vim.schedule(function()
   opt.clipboard = 'unnamedplus'
 end)
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 opt.exrc = true
 opt.secure = true
+opt.completeopt = { "menuone", "menuone", "fuzzy" }
 
 opt.rnu = true
 opt.nu = true
@@ -18,8 +22,12 @@ opt.guicursor = table.concat({
   'o:hor50-blinkwait250-blinkon250-blinkoff250',
 }, ',')
 
+opt.hlsearch = true
 opt.ignorecase = true
 opt.smartcase = true
+opt.smartindent = true
+opt.expandtab = true
+opt.shiftwidth = 2
 
 opt.swapfile = false
 opt.undofile = true
@@ -28,7 +36,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.mouse = 'a'
-opt.updatetime = 250
+opt.updatetime = 100
 opt.timeoutlen = 500
 
 opt.list = true

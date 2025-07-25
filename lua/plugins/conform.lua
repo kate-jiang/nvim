@@ -20,18 +20,10 @@ return {
     formatters = {
       prettier = {
         args = function()
-          local expandtab = vim.api.nvim_get_option_value('expandtab', { scope = 'local' })
           local shiftwidth = vim.api.nvim_get_option_value('shiftwidth', { scope = 'local' })
-          local tabstop = vim.api.nvim_get_option_value('tabstop', { scope = 'local' })
-
           local args = { '--stdin-filepath', vim.api.nvim_buf_get_name(0) }
-          if expandtab then
-            table.insert(args, '--use-tabs=false')
-            table.insert(args, '--tab-width=' .. shiftwidth)
-          else
-            table.insert(args, '--use-tabs=true')
-            table.insert(args, '--tab-width=' .. tabstop)
-          end
+          table.insert(args, '--use-tabs=false')
+          table.insert(args, '--tab-width=' .. shiftwidth)
           return args
         end,
         stdin = true,
