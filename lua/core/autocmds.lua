@@ -10,6 +10,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- don't comment newlines
 vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    require("persistence").load()
+    vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+  end,
+})
+
 -- open file to last location
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()

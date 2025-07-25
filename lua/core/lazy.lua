@@ -9,40 +9,35 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
+  -- {
+  --   'folke/noice.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --     message = {
+  --       enabled = false,
+  --     },
+  --     notify = {
+  --       enabled = false,
+  --     },
+  --     popupmenu = {
+  --       enabled = false,
+  --     },
+  --     presets = {
+  --       lsp_doc_border = true,
+  --     },
+  --   },
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --   },
+  -- },
   {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
+    "folke/persistence.nvim",
+    event = "BufReadPre",   -- this will only start session saving when an actual file was opened
     opts = {
-      message = {
-        enabled = false,
-      },
-      notify = {
-        enabled = false,
-      },
-      popupmenu = {
-        enabled = false,
-      },
-      presets = {
-        lsp_doc_border = true,
-      },
-    },
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-    },
+      -- add any custom options here
+    }
   },
-  {
-    'rmagatti/auto-session',
-    config = function()
-      local auto_session = require 'auto-session'
-
-      auto_session.setup {
-        auto_restore = true,
-        auto_save = true,
-        suppressed_dirs = { '~/Downloads', '~/Documents', '~/Desktop' },
-      }
-    end,
-  },
-  {
+  { -- Lua
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = true,
