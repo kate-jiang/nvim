@@ -16,11 +16,9 @@ return {
           CursorLineNr = { fg = colors.pink },
           Search = { bg = colors.peach, fg = '#000000' },
           IncSearch = { bg = colors.red, fg = '#181825' },
-          EndOfBuffer = { fg = colors.flamingo },
           YankHighlight = { bg = '#d45f98', fg = colors.peach },
           SnacksIndentScope = { fg = colors.overlay0 },
           SnacksIndent = { fg = colors.surface0 },
-          -- WinSeparator = { fg = colors.base, bg = colors.crust },
         }
       end,
     }

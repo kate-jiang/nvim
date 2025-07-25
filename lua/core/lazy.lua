@@ -9,6 +9,24 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
+  install = {
+    missing = true,
+  },
+  checker = {
+    enabled = true,
+    notify = true
+  },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
+  ui = {
+    border = "rounded",
+    size = {
+      width = 0.8,
+      height = 0.8,
+    }
+  },
   -- {
   --   'folke/noice.nvim',
   --   event = 'VeryLazy',
@@ -32,7 +50,7 @@ require('lazy').setup {
   -- },
   {
     "folke/persistence.nvim",
-    event = "BufReadPre",   -- this will only start session saving when an actual file was opened
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = {
       -- add any custom options here
     }

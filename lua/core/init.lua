@@ -1,5 +1,5 @@
-require 'core.keymaps'
 require 'core.options'
+require 'core.keymaps'
+require 'core.lazy'
 require 'core.lsp'
 require 'core.autocmds'
-require 'core.lazy'

@@ -1,6 +1,6 @@
 return {
   'folke/which-key.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   opts = {
     spec = {
       { '<leader>c', group = 'Code' },
@@ -16,4 +16,7 @@ return {
       { '<leader>f', group = 'Find' },
     },
   },
+  window = {
+    border = "single"
+  }
 }
