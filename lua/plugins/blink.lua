@@ -6,7 +6,10 @@ return {
   },
   version = '*',
   opts = {
-    keymap = { preset = 'default' },
+    keymap = {
+      preset = 'default',
+      ['<Enter>'] = { 'accept' },
+    },
 
     appearance = {
       use_nvim_cmp_as_default = true,
@@ -14,13 +17,15 @@ return {
     },
 
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
-      copilot = {
-        name = "copilot",
-        module = "blink-copilot",
-        score_offset = 100,
-        async = true,
-      },
+      default = { 'copilot', 'lsp', 'path', 'snippets', 'buffer' },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
+        },
+      }
     },
   },
   opts_extend = { 'sources.default' },
