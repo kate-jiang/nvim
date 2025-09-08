@@ -27,27 +27,27 @@ require('lazy').setup {
       height = 0.8,
     }
   },
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     message = {
-  --       enabled = false,
-  --     },
-  --     notify = {
-  --       enabled = false,
-  --     },
-  --     popupmenu = {
-  --       enabled = false,
-  --     },
-  --     presets = {
-  --       lsp_doc_border = true,
-  --     },
-  --   },
-  --   dependencies = {
-  --     'MunifTanjim/nui.nvim',
-  --   },
-  -- },
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      message = {
+        enabled = false,
+      },
+      notify = {
+        enabled = false,
+      },
+      popupmenu = {
+        enabled = false,
+      },
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+  },
   {
     "folke/persistence.nvim",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
