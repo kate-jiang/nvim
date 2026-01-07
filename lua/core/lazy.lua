@@ -55,7 +55,7 @@ require('lazy').setup {
       -- add any custom options here
     }
   },
-  { -- Lua
+  {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = true,
